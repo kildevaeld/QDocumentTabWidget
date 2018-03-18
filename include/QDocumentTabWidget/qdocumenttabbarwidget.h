@@ -11,6 +11,7 @@ public:
 signals:
   void closeOtherTabsRequested(int index);
   void closeAllTabsRequested();
+  void barClicked(QMouseEvent *event);
 
 protected:
   virtual void mouseReleaseEvent(QMouseEvent *event) override;

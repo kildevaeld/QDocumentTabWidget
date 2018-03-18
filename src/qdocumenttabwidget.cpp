@@ -62,6 +62,9 @@ QDocumentTabWidget::QDocumentTabWidget(QWidget *parent) : QTabWidget(parent) {
   connect(this, &QDocumentTabWidget::tabCloseRequested, this,
           &QDocumentTabWidget::closeTab);
 
+  connect(bar, &TabWidgetBar::barClicked, this,
+          &QDocumentTabWidget::barClicked);
+
   // auto pal = Settings::instance().editor().palette(palette());
   // auto theme = Settings::instance().editor().theme();
   // auto color = theme.editorColor(Theme::BackgroundColor);
@@ -166,6 +169,8 @@ void QDocumentTabWidget::closeTab(int index) {
     // Editor *editor = w->widget<Editor>();
 
     delete w;
+
+    emit tabClosed();
     // delete tabWidget;
   }
 }

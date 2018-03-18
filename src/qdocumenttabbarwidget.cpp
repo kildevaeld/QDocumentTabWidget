@@ -32,6 +32,7 @@ void TabWidgetBar::buildContextMenu() {
 void TabWidgetBar::rightMouseReleaseEvent(QMouseEvent *event) {
   int tabindex = tabAt(event->pos());
   if (tabindex < 0) {
+    emit barClicked(event);
     return;
   }
 

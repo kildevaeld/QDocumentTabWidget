@@ -1,4 +1,5 @@
 #pragma once
+#include <QMouseEvent>
 #include <QTabWidget>
 #include <functional>
 
@@ -23,6 +24,11 @@ public:
 
   void addTab(BaseTabItem *item);
   BaseTabItem *itemWidget(int index);
+
+signals:
+  void barClicked(QMouseEvent *event);
+  void tabClosed();
+
 private slots:
   void tabItemNameChanged(BaseTabItem *item, const QString &name);
 
