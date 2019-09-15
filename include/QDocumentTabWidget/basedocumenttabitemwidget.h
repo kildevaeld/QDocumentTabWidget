@@ -6,6 +6,11 @@ class BaseTabItem : public QWidget {
   Q_OBJECT
 public:
   BaseTabItem(QWidget *parent = 0);
+  ~BaseTabItem() {
+    if (m_widget) {
+      delete m_widget;
+    }
+  }
 
   bool isFragile() const;
   void setFragile(bool preview);
